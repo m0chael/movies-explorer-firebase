@@ -2,6 +2,8 @@
 
 A Movies explorer featuring authentication, users, movie browsing and favourites with a panel for syncing movies to database.
 
+![Movies Explorer Firebase Screenshot](./movies.jpg)
+
 ## Requires
 
 A `configurations.js` file in the `js` folder, which contains the following:
