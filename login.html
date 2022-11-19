@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Movies</title>
+  <!-- Styling links necessary for this page -->
+  <link rel="stylesheet" href="css/header-styles.css">
+  <link rel="stylesheet" href="css/common-styles.css">
+  <link rel="stylesheet" href="css/login-styles.css">
+  <!-- Including firebase libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <header>
+    <!-- Main navigation, slim enough to not need a hamburger mobile menu -->
+    <nav class="flex">
+      <h2 id="loading" class="opacity-off">&#x21bb;</h2>
+      <a href="index.html"><h1>Movies</h1></a>
+      <a href="directory.html"><p>All</p></a>
+      <a href="profiles.html"><p>Public</p></a>
+      <a id="user-link" class="hide" href="profile.html"><p>Me</p></a>
+    </nav>
+    <!-- This login-link will change when logged in to show a logout button instead -->
+    <a id="login-link" href="login.html"><p>Login</p></a>
+  </header>
+
+  <main>
+    <!-- Main container which contains the login and signup forms, and toggle tab buttons to navigate between them -->
+    <div class="flex-buttons">
+      <!-- Tab button functionality to navigate between forms -->
+      <button id="showLoginForm" disabled class="button" onclick="LoginPage.showLoginForm()">Login Now</button>
+      <button id="showSignupForm" class="button" onclick="LoginPage.showSignupForm()">Click here to signup</button>
+    </div>
+
+    <!-- The login form -->
+    <div id="loginForm" class="grid-wrapper">
+      <img class="hide" id="slideshow" src="" alt="Placeholder">
+      <form>
+        <h3>Please login to get liking!</h3>
+        <label class="form-break">
+          <div>Email:</div>
+          <input id="loginEmail" type="email" placeholder="Enter your email...">
+        </label>
+        <label class="form-break">
+          <div>Password:</div>
+          <input id="loginPassword" type="password" placeholder="Enter your password...">
+        </label>
+        <div class="form-break">
+          <button id="loginButton" class="button" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- The signup form -->
+    <div id="signupForm" class="grid-wrapper hide">
+      <form>
+        <h3>Signup today to get started!</h3>
+        <label class="form-break">
+          <div>Email:</div>
+          <input id="signupEmail" type="email" placeholder="Enter your email...">
+        </label>
+        <label class="form-break">
+          <div>Password:</div>
+          <input id="signupPassword" type="password" placeholder="Enter your password...">
+        </label>
+        <div class="form-break">
+          <button id="signupButton" class="button" type="submit">Signup</button>
+        </div>
+      </form>
+    </div>
+    <!-- Final next button upon signup successful -->
+    <a id="next-progress-button" href="profile.html" class="button hide">Go to your new profile!</a>
+  </main>
+
+  <footer>
+    <!-- Footer container for about page link and signature -->
+    <a href="about.html"><p><strong>About</strong></p></a>
+    <p><strong>2022 Written by Michael with Firebase</strong></p>
+  </footer>
+
+  <!-- The scripts to load in this order for this page -->
+  <script src="js/configurations.js"></script>
+  <script src="js/firebase-loader.js"></script>
+  <script src="js/login-driver.js"></script>
+  <!-- Initializers based on the contained libraries above -->
+  <script>
+    FirebaseConfigDriver.initForUser();
+    LoginDriver.init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* Styles which are specific to the directory page */
+
+main {
+  padding:2rem;
+}
+
+ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap:5rem;
+  padding-left:0;
+}
+
+ul li img {
+  max-width:200px;
+  border:1px solid black;
+}
+
+.likes {
+  max-width: 100px;
+  background-color:#ccccff;
+  margin-top:0.25rem;
+  padding:0 2rem 0 2rem;
+  display: inline;
+}
+
+.likes-section {
+  display: inline;
+}
+
+.likes-section span {
+  background-color: white;
+  border:1px solid black;
+  margin-right:0.33rem;
+  padding:0 2rem 0 2rem;
+  color:black;
+}
+
+ul li {
+  display: flex;
+  flex-direction: column;
+}
+
+ul li a {
+  cursor: pointer;
+}
+
+ul li a:hover {
+  opacity:0.8;
+}
+
+ul li .titles {
+  text-align: left;
+  padding:1rem 1rem 1rem 0;
+  font-size:1.2rem;
+  font-weight: bold;
+}
+
+ul li .tags-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.tags {
+  margin-right:1rem;
+  padding:0.33rem;
+}
+
+ul li p {
+  max-width:600px;
+}
+
+@media screen and (min-width:700px) {
+  ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width:1000px) {
+  main {
+    padding:2rem 5rem 2rem 10rem;
+  }
+
+  ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

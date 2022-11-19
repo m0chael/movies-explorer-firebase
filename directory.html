@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Movies</title>
+  <!-- Styling links necessary for this page -->
+  <link rel="stylesheet" href="css/header-styles.css">
+  <link rel="stylesheet" href="css/common-styles.css">
+  <link rel="stylesheet" href="css/directory-styles.css">
+  <!-- Including firebase libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <!-- Included jquery for using lity library -->
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <!-- Lity required libraries for splash lightbox -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css">
+</head>
+<body>
+  <header>
+    <!-- Main navigation, slim enough to not need a hamburger mobile menu -->
+    <nav class="flex">
+      <h2 id="loading">&#x21bb;</h2>
+      <a href="index.html"><h1>Movies</h1></a>
+      <a href="directory.html"><p class="highlight">All</p></a>
+      <a href="profiles.html"><p>Public</p></a>
+      <a id="user-link" class="hide" href="profile.html"><p>Me</p></a>
+    </nav>
+    <!-- This login-link will change when logged in to show a logout button instead -->
+    <a id="login-link" href="login.html"><p>Login</p></a>
+  </header>
+
+  <main>
+    <!-- Main grid-wrapper which contains the movie list for the directory -->
+    <div id="movie-list"></div>
+  </main>
+
+  <footer>
+    <!-- Footer container for about page link and signature -->
+    <a href="about.html"><p><strong>About</strong></p></a>
+    <p><strong>2022 Written by Michael with Firebase</strong></p>
+  </footer>
+
+  <!-- The scripts to load in this order for this page -->
+  <script src="js/configurations.js"></script>
+  <script src="js/firebase-loader.js"></script>
+  <script src="js/directory-driver.js"></script>
+  <!-- Initializers based on the contained libraries above -->
+  <script>
+    FirebaseConfigDriver.initForUser();
+    DirectoryDriver.init();
+  </script>
+</body>
+</html>

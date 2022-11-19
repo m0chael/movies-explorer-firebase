@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Me | Movies</title>
+  <!-- Styling links necessary for this page -->
+  <link rel="stylesheet" href="css/header-styles.css">
+  <link rel="stylesheet" href="css/user-styles.css">
+  <link rel="stylesheet" href="css/common-styles.css">
+  <!-- Including firebase libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+</head>
+<body>
+  <header>
+    <!-- Main navigation, slim enough to not need a hamburger mobile menu -->
+    <nav class="flex">
+      <h2 id="loading">&#x21bb;</h2>
+      <a href="index.html"><h1>Movies</h1></a>
+      <a href="directory.html"><p>All</p></a>
+      <a href="profiles.html"><p>Public</p></a>
+      <a id="user-link" class="hide highlight" href="profile.html"><p>Me</p></a>
+    </nav>
+    <!-- This login-link will change when logged in to show a logout button instead -->
+    <a id="login-link" href="login.html"><p>Login</p></a>
+  </header>
+
+  <main>
+    <!-- Main container which contains the list for my favourites of the user profile -->
+    <div>
+      <img class="hide" id="slideshow" src="" alt="Placeholder">
+      <div>
+        <a href="admin.html" class="admin-button button">Go to admin panel</a>
+        <h1>Welcome to the your profile <span id="user-email-span"></span></h1>
+        <h2 id="user-sub-text"></h2>
+      </div>
+    </div>
+    <!-- The favourites list object which gets populated by the ProfilePage-->
+    <div id="favourites-list"></div>
+  </main>
+
+  <footer>
+    <!-- Footer container for about page link and signature -->
+    <a href="about.html"><p><strong>About</strong></p></a>
+    <p><strong>2022 Written by Michael with Firebase</strong></p>
+  </footer>
+
+  <!-- The scripts to load in this order for this page -->
+  <script src="js/configurations.js"></script>
+  <script src="js/firebase-loader.js"></script>
+  <script src="js/profile-driver.js"></script>
+  <!-- Initializers based on the contained libraries above -->
+  <script>
+    FirebaseConfigDriver.initForUser();
+    ProfileDriver.init();
+  </script>
+</body>
+</html>

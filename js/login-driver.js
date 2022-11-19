@@ -1,0 +1,110 @@
+// The LoginDriver which handles all functionality on the login page
+
+const LoginDriver = {
+  isInProgress:false,
+
+  // Initialization function which handles the tabbing functionality event listeners and checks if already logged in, so it will redirect if necessary
+  async init() {
+    const that = this;
+
+    document.querySelector("#signupButton").addEventListener("click", function(event) {
+      event.preventDefault();
+      that.signupUser();
+    });
+
+    document.querySelector("#loginButton").addEventListener("click", function(event) {
+      event.preventDefault();
+      that.loginUser();
+    });
+
+    await FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
+      if (resultingUser && !that.isInProgress) {
+       window.location.href = "profile.html";
+      }
+    });
+  },
+
+  // Login user function which gets called on the login form, authenticating a user with firebase
+  async loginUser() {
+    this.isInProgress = true;
+    let thisEmail = q("#loginEmail");
+    let thisPassword = q("#loginPassword");
+
+    if (thisEmail.value == "") {
+      // Handles missing values and throws an error notice
+      FirebaseConfigDriver.throwErrorNotice("Please enter a value for email and password")
+    } else if (thisPassword == "") {
+      // Handles missing values and throws an error notice
+      FirebaseConfigDriver.throwErrorNotice("Please enter a value for email and password")
+    } else {
+      await FirebaseConfigDriver.loginUserOnFirebase(thisEmail.value, thisPassword.value, async function(resultsFromFirebase){
+        if (resultsFromFirebase[0]) {
+          // Login in the user and go to the profile page
+          window.location.href = "profile.html";
+        } else {
+          FirebaseConfigDriver.throwErrorNotice("Login unsuccesful: " + resultsFromFirebase[1])
+        }
+        thisEmail.value = "";
+        thisPassword.value = "";
+      })
+    }
+  },
+
+  // Sign in the user functionality which handles missing inputs
+  async signupUser() {
+    const that = this;
+
+    this.isInProgress = true;
+    let thisEmail = q("#signupEmail");
+    let thisPassword = q("#signupPassword");
+
+    if (thisEmail.value == "") {
+      // Handles missing values and throws an error notice
+      FirebaseConfigDriver.throwErrorNotice("Please enter a value for email and password")
+    } else if (thisPassword.value == "") {
+      // Handles missing values and throws an error notice
+      FirebaseConfigDriver.throwErrorNotice("Please enter a value for email and password")
+    } else {
+      // Create the user fully on firebase which also initializes the favourites object for that user in that collection
+      await FirebaseConfigDriver.createUserOnFirebase(thisEmail.value, thisPassword.value, async function(resultsFromFirebase){
+        if (typeof resultsFromFirebase.message != 'undefined') {
+          FirebaseConfigDriver.throwErrorNotice(resultsFromFirebase.message);
+        } else {
+          FirebaseConfigDriver.throwSuccessNotice("Signup Successful!");
+          that.hideAllFormsAndDisplayNext();
+        }
+      }).catch((error)=>{
+        FirebaseConfigDriver.throwErrorNotice(error.message);
+      });
+
+      // Reset the form
+      thisEmail.value = "";
+      thisPassword.value = "";
+    }
+  },
+
+  // Hide all forms and display the next button, this gives enough time for the initialization of the favourites object
+  hideAllFormsAndDisplayNext() {
+    q("#loginForm").classList.add("hide");
+    q("#signupForm").classList.add("hide");
+    q("#showLoginForm").classList.add("hide");
+    q("#showSignupForm").classList.add("hide");
+    q("#next-progress-button").classList.remove("hide");
+  },
+
+  // Show the login form functionality
+  showLoginForm() {
+    q("#loginForm").classList.remove("hide");
+    q("#signupForm").classList.add("hide");
+    q("#showLoginForm").disabled = true;
+    q("#showSignupForm").disabled = false;
+  },
+
+  // Show the signup form functionality
+  showSignupForm() {
+    q("#loginForm").classList.add("hide");
+    q("#signupForm").classList.remove("hide");
+    q("#showLoginForm").disabled = false;
+    q("#showSignupForm").disabled = true;
+  }
+};

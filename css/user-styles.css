@@ -1,0 +1,40 @@
+/* Styles which are specific to the users */
+
+#user-email-span {
+  font-style: italic;
+  display: block;
+  color:green;
+}
+
+ul li .titles {
+  text-align: left;
+  padding:1rem 1rem 1rem 0;
+  font-size:1.2rem;
+  font-weight: bold;
+}
+
+.likes-section {
+  display: inline;
+}
+
+.likes-section span {
+  background-color: white;
+  border:1px solid black;
+  margin-right:0.33rem;
+  padding:0 2rem 0 2rem;
+  color:black;
+}
+
+ul {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap:5rem;
+  padding-left:0;
+}
+
+ul li img {
+  max-width:200px;
+  border:1px solid black;
+  display: block;
+}

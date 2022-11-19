@@ -1,0 +1,51 @@
+/* Styles which are specific to the header */
+
+body, h1, h2, p {
+  padding:0;
+  margin:0;
+}
+
+.hide {
+  display: none;
+}
+
+main {
+  min-height: 70vh;
+}
+
+header a, footer a {
+  text-decoration: none;
+  color:black;
+}
+
+header a:hover, .highlight, footer a:hover {
+  text-decoration: underline;
+}
+
+#login-link {
+  font-weight: bold;
+}
+
+header, footer {
+  background-color:#ccccff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding:1rem;
+  border:1px solid black;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header p {
+  font-weight: bold;
+}
+
+header .flex p, header .flex h1 {
+  margin-right:1rem;
+}

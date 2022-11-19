@@ -1,0 +1,118 @@
+/* Styles which are common to the various pages */
+
+.hide {
+  display: none;
+}
+
+.opacity-off {
+  opacity: 0;
+}
+
+.button.admin-button {
+  display: inline-block;
+}
+
+#loading {
+  animation:loading-spin 1s linear infinite;
+  margin-right:0.5rem;
+}
+
+/* Animation keyframes for the loading spinner */
+@keyframes loading-spin {
+    100% {
+        transform:rotate(360deg);
+    }
+}
+
+main {
+  padding:3rem 5rem 3rem 5rem;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+}
+
+.error-notice {
+  position: fixed;
+  top:0.2rem;
+  right:0.2rem;
+  padding:3rem;
+  background-color: lightgray;
+  border:1px solid black;
+}
+
+.error-notice button {
+  display: block;
+  margin-top: 1rem;
+  padding:0.5rem 2rem 0.5rem 2rem;
+}
+
+.grid-wrapper.hide {
+  display: none;
+}
+
+.grid-wrapper img{
+  margin-bottom:1rem;
+}
+
+.grid-wrapper h1, .grid-wrapper h2 {
+  padding: 0;
+  margin-bottom:1rem;
+}
+
+.grid-wrapper h2 {
+  margin-bottom:1rem;
+}
+
+.grid-wrapper p {
+  margin-bottom:1rem;
+}
+
+.button, .button-type {
+  background-color: #ccccff;
+  padding:1rem 2rem 1rem 2rem;
+  text-decoration: none;
+  color:black;
+  margin-right:1rem;
+  display: block;
+  margin-bottom:0.5rem;
+  border:1px solid black;
+}
+
+.button.hide {
+  display: none;
+}
+
+.flex-buttons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.button:disabled {
+  background-color:lightgray;
+}
+
+.button:disabled:hover {
+  background-color:lightgray;
+}
+
+.button:hover {
+  background-color:#9292ff;
+}
+
+@media screen and (min-width:700px) {
+  .grid-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .grid-wrapper img {
+    grid-column: 2/3;
+  }
+
+  .grid-wrapper div {
+    grid-column: 3/5;
+  }
+}

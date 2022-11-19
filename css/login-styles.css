@@ -1,0 +1,21 @@
+/* Styles which are specific to the login page */
+
+.form-break {
+  margin-bottom:1rem;
+  display: block;
+}
+
+form {
+  margin-top:1rem;
+  background-color: lightgray;
+  padding:2rem;
+  border:1px solid black;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input {
+  padding:0.5rem;
+}

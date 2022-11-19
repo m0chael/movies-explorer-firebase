@@ -1,0 +1,21 @@
+/* Styles specific for the admin page */
+
+main {
+  padding:3rem;
+}
+
+#movie-list {
+  margin-top:3rem;
+}
+
+#main-title {
+  margin-bottom:1rem;
+}
+
+#movie-lookup-submit {
+  margin-top:1rem;
+}
+
+form {
+  margin-bottom:1rem;
+}
