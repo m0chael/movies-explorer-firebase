@@ -2,12 +2,13 @@
 
 const ProfilesDriver = {
   // Initialize the profiles page by getting the items from firebase for the movies and favourites
-  async init() {
+  init() {
     const that = this;
-    await FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.MOVIE_COLLECTION, async function(movieResultsFromFirebase){
-      console.log("got data from movies");
-      await FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.FAVOURITES_COLLECTION, function(resultsFromFirebase){
-        console.log("got data from favourites");
+
+    FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.MOVIE_COLLECTION, function(movieResultsFromFirebase){
+      console.log("Got data from movies...");
+      FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.FAVOURITES_COLLECTION, function(resultsFromFirebase){
+        console.log("Got data from favourites...");
         that.buildPublicProfilesPage(movieResultsFromFirebase, resultsFromFirebase.docs);
       });
     });

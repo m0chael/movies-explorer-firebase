@@ -27,12 +27,11 @@ const FirebaseConfigDriver = {
   //Wait for user function which is similar to the above but just processes the user, so it is like a failsafe if the initForUser doesn't detect the user right away
   waitForUser() {
     const that = this;
-
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
+    this.checkIfIsLoggedIn(function(incomingUser){
+      if (incomingUser) {
         that.processLoggedInUser();
       } else {
-        console.log("user is not signed in...");
+        console.log("User is not signed in...");
       }
     });
   },

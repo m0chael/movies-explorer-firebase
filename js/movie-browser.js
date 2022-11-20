@@ -67,4 +67,3 @@ const MovieBrowser = {
   return response;
   }
 };
-

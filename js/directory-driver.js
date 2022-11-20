@@ -2,9 +2,9 @@
 
 const DirectoryDriver = {
   // The initialization function which grabs the movies from firebase and then builds the directory page
-  async init() {
+  init() {
     const that = this;
-    await FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.MOVIE_COLLECTION, async function(resultsFromFirebase){
+    FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.MOVIE_COLLECTION, function(resultsFromFirebase){
       that.buildDirectoryPage(resultsFromFirebase);
     });
   },

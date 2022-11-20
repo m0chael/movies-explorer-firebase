@@ -7,12 +7,12 @@ const LoginDriver = {
   async init() {
     const that = this;
 
-    document.querySelector("#signupButton").addEventListener("click", function(event) {
+    q("#signupButton").addEventListener("click", function(event) {
       event.preventDefault();
       that.signupUser();
     });
 
-    document.querySelector("#loginButton").addEventListener("click", function(event) {
+    q("#loginButton").addEventListener("click", function(event) {
       event.preventDefault();
       that.loginUser();
     });
