@@ -1,8 +1,9 @@
 // The LoginDriver which handles all functionality on the login page
 
-const LoginDriver = {
-  isInProgress:false,
-
+class LoginDriver {
+  constructor() {
+    this.isInProgress = false;
+  }
   // Initialization function which handles the tabbing functionality event listeners and checks if already logged in, so it will redirect if necessary
   async init() {
     const that = this;
@@ -22,7 +23,7 @@ const LoginDriver = {
        window.location.href = "profile.html";
       }
     });
-  },
+  };
 
   // Login user function which gets called on the login form, authenticating a user with firebase
   async loginUser() {
@@ -48,7 +49,7 @@ const LoginDriver = {
         thisPassword.value = "";
       })
     }
-  },
+  };
 
   // Sign in the user functionality which handles missing inputs
   async signupUser() {
@@ -81,7 +82,7 @@ const LoginDriver = {
       thisEmail.value = "";
       thisPassword.value = "";
     }
-  },
+  };
 
   // Hide all forms and display the next button, this gives enough time for the initialization of the favourites object
   hideAllFormsAndDisplayNext() {
@@ -90,7 +91,7 @@ const LoginDriver = {
     q("#showLoginForm").classList.add("hide");
     q("#showSignupForm").classList.add("hide");
     q("#next-progress-button").classList.remove("hide");
-  },
+  };
 
   // Show the login form functionality
   showLoginForm() {
@@ -98,7 +99,7 @@ const LoginDriver = {
     q("#signupForm").classList.add("hide");
     q("#showLoginForm").disabled = true;
     q("#showSignupForm").disabled = false;
-  },
+  };
 
   // Show the signup form functionality
   showSignupForm() {
@@ -106,5 +107,5 @@ const LoginDriver = {
     q("#signupForm").classList.remove("hide");
     q("#showLoginForm").disabled = false;
     q("#showSignupForm").disabled = true;
-  }
+  };
 };

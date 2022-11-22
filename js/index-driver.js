@@ -1,10 +1,13 @@
 // The IndexDriver which handles all functionality on the landing page
 
-const IndexDriver = {
+class IndexDriver {
   // Slide show variables
-  slideShowBundle: [],
-  SLIDE_SHOW_DELAY: 1000,
-  slideShowIndex: 0,
+
+  constructor() {
+    this.slideShowBundle = [];
+    this.slideShowIndex = 0;
+    this.SLIDE_SHOW_DELAY = 1000;
+  };
 
   // Initialize the index page by getting the movies from firebase to populate the slideshow images and keep things dynamic
   async init() {
@@ -21,7 +24,7 @@ const IndexDriver = {
         q("#login-link-button").innerText = "My profile";
       }
     });
-  },
+  };
 
   // Build the index page using the movie results from firebase firestore
   buildIndexPage(resultsFromFirebase) {
@@ -38,7 +41,7 @@ const IndexDriver = {
     q("#slideshow").classList.remove("hide");
     this.startSlideShow();
     FirebaseConfigDriver.loadingOff();
-  },
+  };
 
   // Start the slideshow tiemout which calls itself to keep going
   startSlideShow() {
@@ -52,5 +55,5 @@ const IndexDriver = {
       q("#slideshow").src = that.slideShowBundle[that.slideShowIndex];
       that.startSlideShow();
     },this.SLIDE_SHOW_DELAY)
-  }
+  };
 };

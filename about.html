@@ -32,11 +32,10 @@
     <div class="grid-wrapper">
       <img class="hide" id="slideshow" src="" alt="Placeholder">
       <div>
-        <h1>This is a movie browser</h1>
+        <h1>This is a movie browser with documentation</h1>
         <p>It's built with firebase, html, css and javascript. It uses an API to get movies which it syncs into the firestore database. It collects "likes" from users, and holds all the favourited/liked items from each user in a seperate collection.</p>
         <div class="flex-buttons">
-          <a class="button" href="index.html">Go back home</a>
-          <a id="login-link-button" class="hide button" href="login.html">Login/Signup</a>
+          <a class="button" href="prototype/prototype.html">Prototype Documentation</a>
         </div>
       </div>
     </div>
@@ -51,11 +50,10 @@
   <!-- The scripts to load in this order for this page -->
   <script src="js/configurations.js"></script>
   <script src="js/firebase-loader.js"></script>
-  <script src="js/index-page.js"></script>
   <!-- Initializers based on the contained libraries above -->
   <script>
-  IndexPage.init();
   FirebaseConfigDriver.initForUser();
+  FirebaseConfigDriver.loadingOff();
   </script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 // The ProfilesDriver which handles all functionality on the public profiles page
 
-const ProfilesDriver = {
+class ProfilesDriver {
+  // Empty constructor
   // Initialize the profiles page by getting the items from firebase for the movies and favourites
   init() {
     const that = this;
@@ -12,8 +13,7 @@ const ProfilesDriver = {
         that.buildPublicProfilesPage(movieResultsFromFirebase, resultsFromFirebase.docs);
       });
     });
-
-  },
+  };
 
   // Then build the profiles page and turn the loading spinner off
   buildPublicProfilesPage(movieResultsFromFirebase, resultsFromFirebase) {
@@ -48,5 +48,5 @@ const ProfilesDriver = {
     q("#profiles-list").innerHTML = builder;
     // Turn the loader off
     FirebaseConfigDriver.loadingOff();
-  }
+  };
 };

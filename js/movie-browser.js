@@ -1,14 +1,11 @@
 // The MovieBrowser which handles all functionality on the admin page
 
-const MovieBrowser = {
+class MovieBrowser {
   // Variables for the API for syncing
-  dataBundle: null,
-  personLookupBundle: null,
-
-  // Start the driver by initializing lookup event listeners
-  startDriver() {
-    this.initLookups();
-  },
+  constructor() {
+    this.dataBundle = null;
+    this.personLookupBundle = null;
+  }
 
   // Start the event listeners for the form on the admin page
   initLookups() {
@@ -27,7 +24,7 @@ const MovieBrowser = {
         q("#movie-lookup-submit").disabled = true;
       });
     });
-  },
+  };
 
   // Build the movie list on the admin page (mini view)
   buildMovieList() {
@@ -50,7 +47,7 @@ const MovieBrowser = {
     q("#movie-count").innerHTML = imageCount + " images counted, compared to: " + incomingDataBundle.length + " items.";
     q("#movie-list").classList.remove("individual-list");
     q("#main-title").textContent = "Movie Browser";
-  },
+  };
 
   // apiGetter functionality to pull the data as a generic function with the queryString
   async apiGetter(queryString) {
@@ -64,6 +61,6 @@ const MovieBrowser = {
       );
     });
 
-  return response;
-  }
+    return response;
+  };
 };

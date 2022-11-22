@@ -1,6 +1,7 @@
 // The ProfileDriver which handles all functionality on user's profile page
 
-const ProfileDriver = {
+class ProfileDriver {
+  // Empty constructor
   // Initialize the profile page checking to make sure the user is logged in to process the profile page
   async init() {
     const that = this;
@@ -12,7 +13,7 @@ const ProfileDriver = {
         that.processProfilePage(resultingUser);
       }
     });
-  },
+  };
 
   // Start the processing of the profile page by grabbing the favourites item for that user based on the uid
   processProfilePage(resultingUser) {
@@ -23,7 +24,7 @@ const ProfileDriver = {
     FirebaseConfigDriver.getSingleFavouritesDoc(resultingUser.uid, function(incomingDoc){
       that.buildFavouritesItems(incomingDoc.data());
     });
-  },
+  };
 
   // Build the list of favourites items, by grabbing each movie doc that matches with the movieId from firebase and list the item on the page as a favourited one
   async buildFavouritesItems(incomingDocument) {
@@ -47,5 +48,5 @@ const ProfileDriver = {
       }
     }
     FirebaseConfigDriver.loadingOff();
-  }
+  };
 };

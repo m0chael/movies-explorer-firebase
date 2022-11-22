@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project Prototyping</title>
+  <style>
+    body {
+      font-size:1.2rem;
+      line-height: 1.5;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left:0;
+    }
+
+    img {
+      width:100%;
+      max-width:800px;
+    }
+
+    img.full {
+      max-width:100%;
+    }
+
+    section p {
+      background-color: lightblue;
+      border:1px solid darkgray;
+      padding:0.5rem;
+    }
+
+    ul li {
+      background-color: bisque;
+      border:1px solid darkgray;
+      padding:0.5rem;
+      margin-bottom:0.5rem;
+      position: relative;
+      padding-left:3rem;
+    }
+
+    ul li span {
+      background-color: rgb(80, 80, 80);
+      color:white;
+      position: absolute;
+      left:0;
+      top:0;
+      padding:0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h1>Movie Explorer</h1>
+    <p>This is the movie explorer project prototype details and mockups.</p>
+    <p>By: Michael</p>
+  </section>
+
+  <section>
+    <h2>Application Overview</h2>
+    <p>A movie browser social paltform to save favourite movies, show off your favourites with public profiles, browse movies and search movies.</p>
+  </section>
+
+  <section>
+    <h2>User Stores</h2>
+    <ul>
+      <li><span>1</span>As an End-User, I'd like to <b>save my favourite movies</b> after logging in so I can refer back to my saved movies.</li>
+      <li><span>2</span>As an End-User, I'd like to be able to <b>search for new movies</b> so I can find something to watch.</li>
+      <li><span>3</span>As an adminstrator, I'd like to be able to <b>update the initial landing page with different movies</b> so I can change the first movies people see on a routine basis.</li>
+      <li><span>4</span>As an adminstrator, I'd like to be able <b>set the slideshow</b> from the firestore database.</li>
+      <li><span>4</span>As an End-User, I'd like to be able <b>view image previews</b> using the lity lightbox.</li>
+      <li><span>5</span>As an End-User, I'd like to be able to <b>set my profile image</b> as a movie image url.</li>
+      <li><span>6</span>As an adminstrator, I'd like to <b>use Firebase as the backend for authentication</b> so that users can signup and login to the movie browser.</li>
+      <li><span>7</span>As an adminstrator, I'd like to <b>use Firebase as the backend for database storage</b> so that users can save their favourites and have a public profile.</li>
+      <li><span>8</span>As an adminstrator, I'd like to <b>have a seperate collection on firebase for configuration of the site</b> so that the frontend can render certain pages directly integration with a backend collection for configuration.</li>
+      <li><span>9</span>As an adminstrator, I'd like to <b>have the frontend escape user input that goes to firestore</b> for security.</li>
+      <li><span>10</span>As an End-User, I'd like to <b>vote on movies in the directory</b> so that people can compare the highest voted favourites.</li>
+      <li><span>11</span>As an adminstrator, I'd like to be able to <b>have an admin panel</b> for syncing new movies to the database based on a search query.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Intention to make use of Firebase</h2>
+    <p>
+      This web app will use Firebase to handle authentication and usage as a backend database with Firestore.
+      It will allow users to signup and login. It will also allow users to be able to save movies that are listed on the browser which is handled by the administrator who synces movie data using an API into the database.
+      Firestore will also be used for an initial configuration collection which stores the movies to display in a slideshow, and holds the synced movie collection data. The administrator will be in charge of searching for new movie keywords from the API and storing those document objects into the database. The frontend will then hold the movies on a directory page for users to save and vote on.
+    </p>
+  </section>
+
+  <section>
+    <h2>Main landing page mockup</h2>
+    <img src="images/mockup-main.png" alt="Main mockup">
+    <h2>Profile mockup</h2>
+    <img src="images/profile-page.png" alt="Profile page mockup">
+    <h2>Directory Page</h2>
+    <img src="images/directory-page.png" alt="Directory page mockup">
+    <h2>Profiles Directory Page</h2>
+    <img src="images/profiles-directory-page.png" alt="Directory page mockup">
+    <h2>Login Page</h2>
+    <img src="images/login-page.png" alt="Login page mockup">
+  </section>
+
+  <section>
+    <h2>Flow Chart</h2>
+    <img class="full" src="images/flow-chart.jpg" alt="Main mockup">
+  </section>
+</body>
+</html>

@@ -57,9 +57,13 @@
   <script src="js/sync-firebase-driver.js"></script>
   <!-- Initializers based on the contained libraries above -->
   <script>
-    MovieBrowser.startDriver();
+    let movieBrowser = new MovieBrowser();
+    movieBrowser.initLookups();
+
     FirebaseConfigDriver.initForUser();
-    SyncFirebaseDriver.init();
+
+   let syncFirebaseDriver = new SyncFirebaseDriver();
+   syncFirebaseDriver.init();
   </script>
 </body>
 </html>
