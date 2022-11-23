@@ -20,7 +20,7 @@ class LoginDriver {
 
     await FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
       if (resultingUser && !that.isInProgress) {
-       window.location.href = "profile.html";
+       window.location.href = SYSTEM_CONFIG.PROFILE_PAGE_LINK;
       }
     });
   };
@@ -41,7 +41,7 @@ class LoginDriver {
       await FirebaseConfigDriver.loginUserOnFirebase(thisEmail.value, thisPassword.value, async function(resultsFromFirebase){
         if (resultsFromFirebase[0]) {
           // Login in the user and go to the profile page
-          window.location.href = "profile.html";
+          window.location.href = SYSTEM_CONFIG.PROFILE_PAGE_LINK;
         } else {
           FirebaseConfigDriver.throwErrorNotice("Login unsuccesful: " + resultsFromFirebase[1])
         }

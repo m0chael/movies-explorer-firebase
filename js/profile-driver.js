@@ -5,9 +5,10 @@ class ProfileDriver {
   // Initialize the profile page checking to make sure the user is logged in to process the profile page
   async init() {
     const that = this;
+
     await FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
       if (!resultingUser) {
-        window.location.href = "login.html";
+        window.location.href = SYSTEM_CONFIG.LOGIN_PAGE_LINK;
       } else {
         console.log("Detected login successful");
         that.processProfilePage(resultingUser);

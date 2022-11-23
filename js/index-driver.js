@@ -20,7 +20,7 @@ class IndexDriver {
     // Set the landing page specific button when the user is logged in
     await FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
       if (resultingUser) {
-        q("#login-link-button").href = "profile.html";
+        q("#login-link-button").href = SYSTEM_CONFIG.PROFILE_PAGE_LINK;
         q("#login-link-button").innerText = "My profile";
       }
     });

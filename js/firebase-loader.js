@@ -47,7 +47,7 @@ class FirebaseConfigDriver {
       };
 
     q("#login-link").innerText = "Logout";
-    q("#login-link").href = "#";
+    q("#login-link").href = SYSTEM_CONFIG.NULL_PAGE_LINK;
     q("#user-link").classList.remove("hide");
     q("#login-link").addEventListener("click", signOutFromLoginLink);
   };
@@ -55,7 +55,7 @@ class FirebaseConfigDriver {
   // Process for signout which switches the link back, and updates the href
   static processSignedOut() {
     q("#login-link").innerText = "Login";
-    q("#login-link").href = "login.html";
+    q("#login-link").href = SYSTEM_CONFIG.LOGIN_PAGE_LINK;
   };
 
   // Gets all items from firebase generic function which gets a collection of documents and goes to the callback, otherwise throws an error screen

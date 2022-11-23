@@ -6,14 +6,14 @@ class SyncFirebaseDriver {
   async init() {
     await FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
       if (!resultingUser) {
-        window.location.href = "login.html";
+        window.location.href = SYSTEM_CONFIG.LOGIN_PAGE_LINK;
       } else {
         console.log("Detected login successful");
         if (resultingUser.uid == SYSTEM_CONFIG.ADMIN_USER) {
           console.log("Detected login successful");
           q("#admin-main").classList.remove("hide");
         } else {
-          window.location.href = "profile.html";
+          window.location.href =  SYSTEM_CONFIG.PROFILE_PAGE_LINK;
         }
       }
     });
@@ -70,6 +70,7 @@ class SyncFirebaseDriver {
   static saveMovieIntoFirebaseSingleDoc(incomingBundle) {
     let newIncomingBundle = incomingBundle;
     newIncomingBundle.likes = 0;
+
     db.collection(SYSTEM_CONFIG.MOVIE_COLLECTION).doc().set(newIncomingBundle).then(() => {
         console.log("Movie Document Successfully written!");
     }).catch((error) => {

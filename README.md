@@ -27,7 +27,12 @@ const SYSTEM_CONFIG = {
   ADMIN_USER: "", // Simple redirecting for an uid of a user allowed to access the syncing page
   MOVIE_COLLECTION: "", // Collection name for movies
   FAVOURITES_COLLECTION: "", // Collection name for favourites
-  API_BASE_MOVIES_URL: "" // API endpoint for movies to pull
+  API_BASE_MOVIES_URL: "", // API endpoint for movies to pull
+
+  // Links to remove static linking in the webapp, using from configuration for more control
+  PROFILE_PAGE_LINK: "",
+  LOGIN_PAGE_LINK: "",
+  NULL_PAGE_LINK: ""
 };
 
 ```
