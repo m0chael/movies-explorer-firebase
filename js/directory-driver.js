@@ -15,7 +15,7 @@ class DirectoryDriver {
     FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
       if (resultingUser) {
         FirebaseConfigDriver.updateMovieLikesInFirebase(incomingEvent);
-        let newFavouritesItem = {movieId: incomingEvent, likeCount: 1 };
+        let newFavouritesItem = {movieId: incomingEvent, likeCount: 1};
         FirebaseConfigDriver.updateFavouritesItem(resultingUser.uid, newFavouritesItem);
 
         let theseItems = document.querySelectorAll("li");

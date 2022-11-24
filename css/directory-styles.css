@@ -44,6 +44,7 @@ ul li {
 
 ul li a {
   cursor: pointer;
+  width: max-content;
 }
 
 ul li a:hover {
