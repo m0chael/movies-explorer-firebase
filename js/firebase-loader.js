@@ -8,8 +8,6 @@ class FirebaseConfigDriver {
     const user = firebase.auth().currentUser;
     if (user) {
       this.processLoggedInUser();
-    } else {
-      console.log("user is not signed in");
     }
   };
 
@@ -41,10 +39,10 @@ class FirebaseConfigDriver {
     const that = this;
 
     function signOutFromLoginLink() {
-        firebase.auth().signOut()
-        that.processSignedOut();
-        document.querySelector("#login-link").removeEventListener("click", signOutFromLoginLink);
-      };
+      firebase.auth().signOut()
+      that.processSignedOut();
+      document.querySelector("#login-link").removeEventListener("click", signOutFromLoginLink);
+    };
 
     q("#login-link").innerText = "Logout";
     q("#login-link").href = SYSTEM_CONFIG.NULL_PAGE_LINK;
@@ -61,6 +59,7 @@ class FirebaseConfigDriver {
   // Gets all items from firebase generic function which gets a collection of documents and goes to the callback, otherwise throws an error screen
   static getAllFromFirebase(incomingCollection, callback) {
     let docs = db.collection(incomingCollection);
+
     docs.get().then((success) => {
       callback(success);
     }).catch((error) => {
@@ -181,6 +180,7 @@ class FirebaseConfigDriver {
   // Get a single document out of the favourites collection for this user id with a callback internally when succesful, otherwise throw an error notice
   static getSingleFavouritesDoc(incomingUid, callback) {
     let docRef = db.collection(SYSTEM_CONFIG.FAVOURITES_COLLECTION).where("uid", "==", incomingUid);
+
     docRef.get().then((doc) => {
         if (doc.docs[0].exists) {
             callback(doc.docs[0]);
@@ -197,6 +197,7 @@ class FirebaseConfigDriver {
   // Get a single movie document from the collection, used in series by the ProfilePage
   static getSingleMovieDoc(incomingId, callback) {
     let docRef = db.collection(SYSTEM_CONFIG.MOVIE_COLLECTION).doc(incomingId);
+
     docRef.get().then((doc) => {
       if (doc.exists) {
           callback(doc.data());

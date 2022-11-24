@@ -21,7 +21,6 @@ class ProfileDriver {
     const that = this;
 
     q("#user-email-span").innerText = resultingUser.email;
-
     FirebaseConfigDriver.getSingleFavouritesDoc(resultingUser.uid, function(incomingDoc){
       that.buildFavouritesItems(incomingDoc.data());
     });
@@ -29,7 +28,6 @@ class ProfileDriver {
 
   // Build the list of favourites items, by grabbing each movie doc that matches with the movieId from firebase and list the item on the page as a favourited one
   async buildFavouritesItems(incomingDocument) {
-    console.log("Build favourites item");
     if (incomingDocument.favourites.length == 0) {
       q("#user-sub-text").innerText = "Start liking movies for them to show up here!";
     } else {
