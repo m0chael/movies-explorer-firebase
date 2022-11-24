@@ -81,6 +81,10 @@ main {
   border:1px solid black;
 }
 
+.button {
+  cursor: pointer;
+}
+
 .button.hide {
   display: none;
 }

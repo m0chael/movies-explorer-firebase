@@ -94,7 +94,7 @@ class LoginDriver {
   };
 
   // Show the login form functionality
-  showLoginForm() {
+  static showLoginForm() {
     q("#loginForm").classList.remove("hide");
     q("#signupForm").classList.add("hide");
     q("#showLoginForm").disabled = true;
@@ -102,7 +102,7 @@ class LoginDriver {
   };
 
   // Show the signup form functionality
-  showSignupForm() {
+  static showSignupForm() {
     q("#loginForm").classList.add("hide");
     q("#signupForm").classList.remove("hide");
     q("#showLoginForm").disabled = false;
