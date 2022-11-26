@@ -3,10 +3,10 @@
 class ProfileDriver {
   // Empty constructor
   // Initialize the profile page checking to make sure the user is logged in to process the profile page
-  async init() {
+  init() {
     const that = this;
 
-    await FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
+      FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
       if (!resultingUser) {
         window.location.href = SYSTEM_CONFIG.LOGIN_PAGE_LINK;
       } else {
@@ -36,16 +36,16 @@ class ProfileDriver {
 
       for (let index = 0; index < incomingDocument.favourites.length; index++) {
         await FirebaseConfigDriver.getSingleMovieDoc(incomingDocument.favourites[index].movieId, function(thisResult){
-          console.log("Received result");
+          console.log("Received a single movie result");
           let thisNewElement = document.createElement("li");
           thisNewElement.innerHTML += '<div class="titles">' + thisResult.show.name + '</div>';
           thisNewElement.innerHTML += '<img src="'+thisResult.show.image.medium+'">';
           thisNewElement.innerHTML += '<div class="likes-section"><span>&#x2605;' + incomingDocument.favourites[index].likeCount + '</span></div>';
-
           q("#favourites-list ul").appendChild(thisNewElement);
         });
       }
     }
+
     FirebaseConfigDriver.loadingOff();
   };
 };

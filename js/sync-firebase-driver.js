@@ -21,7 +21,8 @@ class SyncFirebaseDriver {
 
   // Actual syncing of current items from the api into the movies collection on firebase
   static async syncMovieBrowserCurrentItems() {
-    await FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.MOVIE_COLLECTION, async function(resultsFromFirebase){
+
+    FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.MOVIE_COLLECTION, async function(resultsFromFirebase){
 
       // Set a default value if the collection is starting from scratch and is empty
       if (resultsFromFirebase.length == 0) {

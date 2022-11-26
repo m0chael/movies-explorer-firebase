@@ -5,7 +5,7 @@ class LoginDriver {
     this.isInProgress = false;
   }
   // Initialization function which handles the tabbing functionality event listeners and checks if already logged in, so it will redirect if necessary
-  async init() {
+  init() {
     const that = this;
 
     q("#signupButton").addEventListener("click", function(event) {
@@ -18,7 +18,7 @@ class LoginDriver {
       that.loginUser();
     });
 
-    await FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
+    FirebaseConfigDriver.checkIfIsLoggedIn(function(resultingUser){
       if (resultingUser && !that.isInProgress) {
        window.location.href = SYSTEM_CONFIG.PROFILE_PAGE_LINK;
       }

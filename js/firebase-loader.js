@@ -12,7 +12,7 @@ class FirebaseConfigDriver {
   };
 
   // Generic helper function for checking when user is logged in and returns the callback that requested it
-  static async checkIfIsLoggedIn(callback) {
+  static checkIfIsLoggedIn(callback) {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         callback(user);
@@ -154,7 +154,7 @@ class FirebaseConfigDriver {
   };
 
   // Login the user on firebase generic with a callback to the LoginPage component
-  static async loginUserOnFirebase(incomingEmail, incomingPassword, callback) {
+  static loginUserOnFirebase(incomingEmail, incomingPassword, callback) {
     firebase.auth().signInWithEmailAndPassword(incomingEmail, incomingPassword)
     .then((userOutput) => {
       callback([true, userOutput]);

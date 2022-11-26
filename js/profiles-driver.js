@@ -7,9 +7,9 @@ class ProfilesDriver {
     const that = this;
 
     FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.MOVIE_COLLECTION, function(movieResultsFromFirebase){
-      console.log("Got data from movies...");
+      console.log("Got data from all movies...");
       FirebaseConfigDriver.getAllFromFirebase(SYSTEM_CONFIG.FAVOURITES_COLLECTION, function(resultsFromFirebase){
-        console.log("Got data from favourites...");
+        console.log("Got data from all favourites...");
         that.buildPublicProfilesPage(movieResultsFromFirebase, resultsFromFirebase.docs);
       });
     });

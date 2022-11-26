@@ -51,13 +51,11 @@ class MovieBrowser {
 
   // apiGetter functionality to pull the data as a generic function with the queryString
   async apiGetter(queryString) {
-    const response = await fetch(queryString)
-    .then((response) => {
+    const response = await fetch(queryString).then((response) => {
       return response.json();
-    })
-    .catch((err) => {
+    }).catch((err) => {
       throw new Error(
-        `Oops! An error occurred when requesting: ${queryString}`
+        `Oops! An error occurred as: ${err}`
       );
     });
 
